@@ -9,7 +9,7 @@ import Foundation
 
 typealias Continents = [Continent]
 
-struct Continent: Codable, Identifiable, Hashable {
+struct Continent: Codable, Identifiable {
     let id = UUID().uuidString
     let continentCode: ContinentCode
     let continentName: ContinentName
