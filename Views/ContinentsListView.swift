@@ -2,26 +2,28 @@
 //  ContinentsListView.swift
 //  TesonetTask
 //
-//  Created by Vilius Bundulas on 2021-09-14.
+//  Created by Vilius Bundulas on 2021-09-13.
 //
 
 import SwiftUI
 
 struct ContinentsListView: View {
     
-    let continents: [Continent]
+    @StateObject var viewModel = ContinentsViewModel()
     
     var body: some View {
-        List {
-            ForEach(continents) { continent in
-                Text(continent.shorterCountryName)
-            }
+        if viewModel.isLoading {
+            LoadingView()
+        } else if viewModel.errorMessage != nil {
+            ErrorView()
+        } else {
+            ContinentsList(continents: viewModel.europe)
         }
     }
 }
 
-struct ContinentsListView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContinentsListView(continents: [Continent]())
+        ContinentsListView()
     }
 }
