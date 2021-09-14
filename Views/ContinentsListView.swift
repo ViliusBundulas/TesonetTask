@@ -17,7 +17,7 @@ struct ContinentsListView: View {
         } else if viewModel.errorMessage != nil {
             ErrorView()
         } else {
-            ContinentsList(continents: viewModel.europe)
+            ContinentsList(continents: viewModel.continents)
         }
     }
 }

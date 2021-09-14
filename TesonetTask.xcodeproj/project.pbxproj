@@ -13,6 +13,7 @@
 		254B57EA26F08D09009DBDD5 /* ContinentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B57E926F08D09009DBDD5 /* ContinentsList.swift */; };
 		254B57EC26F08F0A009DBDD5 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B57EB26F08F0A009DBDD5 /* ErrorView.swift */; };
 		254B57EF26F1321A009DBDD5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B57EE26F1321A009DBDD5 /* HomeView.swift */; };
+		254B57F326F1401A009DBDD5 /* ContinentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B57F226F1401A009DBDD5 /* ContinentView.swift */; };
 		2586B00426EFE41100707579 /* TesonetTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586B00326EFE41100707579 /* TesonetTaskApp.swift */; };
 		2586B00626EFE41100707579 /* ContinentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586B00526EFE41100707579 /* ContinentsListView.swift */; };
 		2586B00826EFE41300707579 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586B00726EFE41300707579 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		254B57E926F08D09009DBDD5 /* ContinentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsList.swift; sourceTree = "<group>"; };
 		254B57EB26F08F0A009DBDD5 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		254B57EE26F1321A009DBDD5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		254B57F226F1401A009DBDD5 /* ContinentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentView.swift; sourceTree = "<group>"; };
 		2586B00026EFE41100707579 /* TesonetTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TesonetTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586B00326EFE41100707579 /* TesonetTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesonetTaskApp.swift; sourceTree = "<group>"; };
 		2586B00526EFE41100707579 /* ContinentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsListView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				254B57E926F08D09009DBDD5 /* ContinentsList.swift */,
 				254B57EB26F08F0A009DBDD5 /* ErrorView.swift */,
 				254B57EE26F1321A009DBDD5 /* HomeView.swift */,
+				254B57F226F1401A009DBDD5 /* ContinentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				254B57F326F1401A009DBDD5 /* ContinentView.swift in Sources */,
 				2586B03526EFEBB000707579 /* ApiManager.swift in Sources */,
 				2586B03226EFE51600707579 /* Continents.swift in Sources */,
 				2586B00626EFE41100707579 /* ContinentsListView.swift in Sources */,
