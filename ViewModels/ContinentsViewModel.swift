@@ -30,6 +30,7 @@ class ContinentsViewModel: ObservableObject {
             switch result {
             case .success(let continents):
                 self.continents = continents
+                    .sorted { $0.shorterCountryName < $1.shorterCountryName }
                 self.europe = continents
                     .filter { $0.continentCode == .eu }
                     .sorted { $0.shorterCountryName < $1.shorterCountryName }

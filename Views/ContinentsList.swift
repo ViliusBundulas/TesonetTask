@@ -10,15 +10,31 @@ import SwiftUI
 struct ContinentsList: View {
     
     let continents: [Continent]
+    
     @State private var selection: Set<Continent> = []
+    @State private var expand: Bool = false
     
     var body: some View {
-        List(continents) { continent in
-            ContinentView(isExpanded: self.selection.contains(continent), continent: continent).onTapGesture {
-                self.selectDeselect(continent)
+        
+        List {
+            ForEach(ContinentName.allCases, id: \.rawValue) { continent in
+                Section(header: Text(continent.rawValue)) {
+                    ForEach(continents.filter { $0.continentName == continent }) { country in
+                        ContinentView(isExpanded: self.selection.contains(country), continent: country).onTapGesture {
+                            self.selectDeselect(country)
+                        }
+                        .animation(.linear(duration: 0.3))
+                    }
+                }
             }
-            .animation(.linear(duration: 0.3))
         }
+        
+//        List(continents) { continent in
+//            ContinentView(isExpanded: self.selection.contains(continent), continent: continent).onTapGesture {
+//                self.selectDeselect(continent)
+//            }
+//            .animation(.linear(duration: 0.3))
+//        }
     }
     
     private func selectDeselect(_ continent: Continent) {

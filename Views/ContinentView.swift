@@ -23,11 +23,11 @@ struct ContinentView: View {
     
     private var content: some View {
         VStack(alignment: .leading) {
-            Text(continent.continentName.rawValue).font(.headline)
+            Text(continent.shorterCountryName).font(.headline)
             
             if isExpanded {
                 VStack(alignment: .leading) {
-                    Text(continent.shorterCountryName)
+                    Text(continent.continentCode.rawValue)
                 }
             }
         }

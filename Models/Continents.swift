@@ -38,7 +38,7 @@ enum ContinentCode: String, Codable {
     case sa = "SA"
 }
 
-enum ContinentName: String, Codable {
+enum ContinentName: String, Codable, CaseIterable {
     case africa = "Africa"
     case antarctica = "Antarctica"
     case asia = "Asia"
