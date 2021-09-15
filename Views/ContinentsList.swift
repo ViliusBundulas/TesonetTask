@@ -9,19 +9,37 @@ import SwiftUI
 
 struct ContinentsList: View {
     
+    @State private var location = "Africa"
+    @State private var imageAnimation = false
+    
     let continents: [Continent]
     
     var body: some View {
         
-        List {
-            ForEach(ContinentName.allCases, id: \.rawValue) { continent in
-                DisclosureGroup(continent.rawValue) {
-                    ForEach(continents.filter { $0.continentName == continent }) { country in
-                        Text(country.shorterCountryName)
+        VStack {
+            Image(location)
+                .resizable()
+                .frame(width: 150, height: 150)
+                .rotationEffect(.degrees(self.imageAnimation ? 360.0 : 0.0))
+                .animation(self.imageAnimation ? Animation.linear(duration: 2.5).repeatForever(autoreverses: false) : nil)
+            Spacer(minLength: 50)
+            List {
+                ForEach(ContinentName.allCases, id: \.rawValue) { continent in
+                    Section {
+                        DisclosureGroup(continent.rawValue) {
+                            ForEach(continents.filter { $0.continentName == continent }) { country in
+                                Text(country.shorterCountryName)
+                            }
+                        }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.imageAnimation = true
+                        self.location = continent.rawValue
                     }
                 }
-            }
-        }.listStyle(InsetGroupedListStyle())
+            }.listStyle(InsetGroupedListStyle())
+        }
     }
     
     struct ContinentsListView_Previews: PreviewProvider {
