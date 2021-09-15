@@ -10,36 +10,34 @@ import SwiftUI
 struct ContinentsList: View {
     
     @State private var location = "Africa"
-    @State private var imageAnimation = false
     @State private var fadeOut = false
     
     let continents: [Continent]
     
     var body: some View {
-        
             VStack {
+                Spacer(minLength: 30)
                 Image(location)
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .rotation3DEffect(self.imageAnimation ? Angle(degrees: 360): Angle(degrees: 0), axis: (x: 0.0, y: 360.0, z: 0.0))
                     .opacity(fadeOut ? 0 : 1)
                     .animation(.easeInOut(duration: 0.5))
                 Spacer(minLength: 30)
-                Text("Continents")
-                    .font(.title)
+                    .font(.subheadline)
                 List {
                     ForEach(ContinentName.allCases, id: \.rawValue) { continent in
                         Section {
                             DisclosureGroup(continent.rawValue) {
                                 ForEach(continents.filter { $0.continentName == continent }) { country in
                                     Text(country.shorterCountryName)
+                                        .font(.body)
                                 }
                             }
                         }
+                        .font(.title2)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             if self.location != continent.rawValue {
-//                                self.imageAnimation.toggle()
                                 self.fadeOut.toggle()
                                 
                                 
@@ -47,15 +45,16 @@ struct ContinentsList: View {
                                     withAnimation {
                                         
                                         self.location = continent.rawValue
-    //                                    self.imageAnimation.toggle()
                                         self.fadeOut.toggle()
                                     }
                                 }
                             }
                         }
                     }
-                }.listStyle(PlainListStyle())
+                }
+                .listStyle(InsetGroupedListStyle())
             }
+            .navigationTitle("Continents")
     }
     
     struct ContinentsListView_Previews: PreviewProvider {
