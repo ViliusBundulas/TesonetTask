@@ -15,13 +15,13 @@ struct ContinentsList: View {
         
         List {
             ForEach(ContinentName.allCases, id: \.rawValue) { continent in
-                Section(header: Text(continent.rawValue)) {
+                DisclosureGroup(continent.rawValue) {
                     ForEach(continents.filter { $0.continentName == continent }) { country in
                         Text(country.shorterCountryName)
                     }
                 }
             }
-        }.listStyle(SidebarListStyle())
+        }.listStyle(InsetGroupedListStyle())
     }
     
     struct ContinentsListView_Previews: PreviewProvider {
