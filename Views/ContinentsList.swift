@@ -11,6 +11,7 @@ struct ContinentsList: View {
     
     @State private var location = "Africa"
     @State private var imageAnimation = false
+    @State private var fadeOut = false
     
     let continents: [Continent]
     
@@ -22,6 +23,8 @@ struct ContinentsList: View {
                 .frame(width: 150, height: 150)
                 .rotationEffect(.degrees(self.imageAnimation ? 360.0 : 0.0))
                 .animation(self.imageAnimation ? Animation.linear(duration: 2.5).repeatForever(autoreverses: false) : nil)
+                .opacity(fadeOut ? 0 : 1)
+                .animation(.easeInOut(duration: 0.5))
             Spacer(minLength: 50)
             List {
                 ForEach(ContinentName.allCases, id: \.rawValue) { continent in
@@ -34,8 +37,17 @@ struct ContinentsList: View {
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        self.imageAnimation = true
-                        self.location = continent.rawValue
+                        self.imageAnimation.toggle()
+                        self.fadeOut.toggle()
+                        
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            withAnimation {
+                                self.location = continent.rawValue
+                                self.fadeOut.toggle()
+                                self.imageAnimation.toggle()
+                            }
+                        }
                     }
                 }
             }.listStyle(InsetGroupedListStyle())
