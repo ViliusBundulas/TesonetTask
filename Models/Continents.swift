@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 typealias Continents = [Continent]
 
@@ -17,6 +18,7 @@ struct Continent: Codable, Identifiable {
     let countryNumber: Int?
     let threeLetterCountryCode: String?
     let twoLetterCountryCode: String
+    var items: [Continent]?
 
     enum CodingKeys: String, CodingKey {
         case continentCode = "Continent_Code"
@@ -46,6 +48,25 @@ enum ContinentName: String, Codable, CaseIterable {
     case northAmerica = "North America"
     case oceania = "Oceania"
     case southAmerica = "South America"
+    
+//    var image: Image {
+//        switch self {
+//        case .africa:
+//            return Image("Africa")
+//        case .antarctica:
+//            return Image("Antarctica")
+//        case .asia:
+//            return Image("Asia")
+//        case .europe:
+//            return Image("Europe")
+//        case .northAmerica:
+//            return Image("North America")
+//        case .oceania:
+//            return Image("Oceania")
+//        case .southAmerica:
+//            return Image("South America")
+//        }
+//    }
 }
 
 extension Continent {

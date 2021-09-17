@@ -9,52 +9,26 @@ import SwiftUI
 
 struct ContinentsList: View {
     
-    @State private var location = "Africa"
-    @State private var fadeOut = false
-    
     let continents: [Continent]
     
     var body: some View {
-            VStack {
-                Spacer(minLength: 30)
-                Image(location)
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .opacity(fadeOut ? 0 : 1)
-                    .animation(.easeInOut(duration: 0.5))
-                Spacer(minLength: 30)
-                    .font(.subheadline)
-                List {
-                    ForEach(ContinentName.allCases, id: \.rawValue) { continent in
-                        Section {
-                            DisclosureGroup(continent.rawValue) {
-                                ForEach(continents.filter { $0.continentName == continent }) { country in
-                                    Text(country.shorterCountryName)
-                                        .font(.body)
-                                }
+        
+        ScrollView {
+            LazyVStack {
+                ForEach(ContinentName.allCases, id: \.rawValue) { continent in
+                    ContinentCard(image: continent.rawValue, continentName: continent.rawValue)
+                    DisclosureGroup("Show countries of \(continent.rawValue)") {
+                        ForEach(continents.filter { $0.continentName == continent }) { country in
+                            VStack {
+                                CountriesListRow(countryName: country.shorterCountryName)
                             }
+                            .background(Color.white)
                         }
-                        .font(.title2)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            if self.location != continent.rawValue {
-                                self.fadeOut.toggle()
-                                
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    withAnimation {
-                                        
-                                        self.location = continent.rawValue
-                                        self.fadeOut.toggle()
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    }.font(.headline)
+                    .frame(maxWidth: 350)
                 }
-                .listStyle(InsetGroupedListStyle())
             }
-            .navigationTitle("Continents")
+        }
     }
     
     struct ContinentsListView_Previews: PreviewProvider {
