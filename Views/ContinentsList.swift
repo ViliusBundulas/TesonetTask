@@ -22,7 +22,6 @@ struct ContinentsList: View {
                             VStack {
                                 CountriesListRow(countryName: country.shorterCountryName)
                             }
-                            .background(Color.white)
                         }
                     }.font(.headline)
                     .frame(maxWidth: 350)

@@ -40,5 +40,12 @@ struct ContinentCard: View {
         .background(Color(red: 32/255, green: 36/255, blue: 38/255))
         .modifier(CardModifier())
         .padding(.all, 10)
+        .shadow(radius: 10)
+    }
+}
+
+struct ContinentCard_Previews: PreviewProvider {
+    static var previews: some View {
+        ContinentCard(image: "Europe", continentName: "Europe")
     }
 }
