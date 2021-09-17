@@ -26,7 +26,7 @@ struct ContinentsList: View {
                     }.font(.headline)
                     .frame(maxWidth: 350)
                 }
-            }
+            }.navigationBarTitle("Continents")
         }
     }
     

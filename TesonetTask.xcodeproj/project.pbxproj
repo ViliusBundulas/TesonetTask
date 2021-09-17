@@ -23,6 +23,9 @@
 		2586B02126EFE41400707579 /* TesonetTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586B02026EFE41400707579 /* TesonetTaskUITests.swift */; };
 		2586B03226EFE51600707579 /* Continents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586B03126EFE51600707579 /* Continents.swift */; };
 		2586B03526EFEBB000707579 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586B03426EFEBB000707579 /* ApiManager.swift */; };
+		2597C8C126F5266D004A4118 /* Earth.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2597C8C026F5266D004A4118 /* Earth.usdz */; };
+		2597C8C326F529B8004A4118 /* EarthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C8C226F529B8004A4118 /* EarthView.swift */; };
+		2597C8C526F52A19004A4118 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C8C426F52A19004A4118 /* StartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		2586B02226EFE41400707579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2586B03126EFE51600707579 /* Continents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continents.swift; sourceTree = "<group>"; };
 		2586B03426EFEBB000707579 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		2597C8C026F5266D004A4118 /* Earth.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Earth.usdz; sourceTree = "<group>"; };
+		2597C8C226F529B8004A4118 /* EarthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthView.swift; sourceTree = "<group>"; };
+		2597C8C426F52A19004A4118 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		2586AFF726EFE41100707579 = {
 			isa = PBXGroup;
 			children = (
+				2597C8CB26F52BAD004A4118 /* 3DObjects */,
 				2586B03326EFEB8600707579 /* Networking */,
 				2586B03026EFE49D00707579 /* Models */,
 				2586B02F26EFE49700707579 /* Views */,
@@ -164,13 +171,10 @@
 		2586B02F26EFE49700707579 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2586B00526EFE41100707579 /* ContinentsListView.swift */,
-				254B57E726F08CE7009DBDD5 /* LoadingView.swift */,
-				254B57E926F08D09009DBDD5 /* ContinentsList.swift */,
-				254B57EB26F08F0A009DBDD5 /* ErrorView.swift */,
-				254B57EE26F1321A009DBDD5 /* HomeView.swift */,
-				25324A3326F401B9009211FC /* ContinentCard.swift */,
-				25324A3526F41622009211FC /* CountriesListRow.swift */,
+				2597C8CA26F52B90004A4118 /* ContinentsListView */,
+				2597C8C926F52B79004A4118 /* LoadingView */,
+				2597C8C726F52B5E004A4118 /* ErrorView */,
+				2597C8C626F52B3A004A4118 /* HomeView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +194,51 @@
 				254B57E526F07E9E009DBDD5 /* APIError.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		2597C8C626F52B3A004A4118 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				2597C8C426F52A19004A4118 /* StartButton.swift */,
+				2597C8C226F529B8004A4118 /* EarthView.swift */,
+				254B57EE26F1321A009DBDD5 /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		2597C8C726F52B5E004A4118 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				254B57EB26F08F0A009DBDD5 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		2597C8C926F52B79004A4118 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				254B57E726F08CE7009DBDD5 /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		2597C8CA26F52B90004A4118 /* ContinentsListView */ = {
+			isa = PBXGroup;
+			children = (
+				2586B00526EFE41100707579 /* ContinentsListView.swift */,
+				254B57E926F08D09009DBDD5 /* ContinentsList.swift */,
+				25324A3326F401B9009211FC /* ContinentCard.swift */,
+				25324A3526F41622009211FC /* CountriesListRow.swift */,
+			);
+			path = ContinentsListView;
+			sourceTree = "<group>";
+		};
+		2597C8CB26F52BAD004A4118 /* 3DObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2597C8C026F5266D004A4118 /* Earth.usdz */,
+			);
+			path = 3DObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2586B00B26EFE41300707579 /* Preview Assets.xcassets in Resources */,
+				2597C8C126F5266D004A4118 /* Earth.usdz in Resources */,
 				2586B00826EFE41300707579 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,11 +381,13 @@
 				254B57EF26F1321A009DBDD5 /* HomeView.swift in Sources */,
 				2586B00426EFE41100707579 /* TesonetTaskApp.swift in Sources */,
 				25324A3626F41622009211FC /* CountriesListRow.swift in Sources */,
+				2597C8C526F52A19004A4118 /* StartButton.swift in Sources */,
 				254B57E426F079FD009DBDD5 /* ContinentsViewModel.swift in Sources */,
 				254B57E826F08CE7009DBDD5 /* LoadingView.swift in Sources */,
 				254B57E626F07E9E009DBDD5 /* APIError.swift in Sources */,
 				254B57EC26F08F0A009DBDD5 /* ErrorView.swift in Sources */,
 				254B57EA26F08D09009DBDD5 /* ContinentsList.swift in Sources */,
+				2597C8C326F529B8004A4118 /* EarthView.swift in Sources */,
 				25324A3426F401B9009211FC /* ContinentCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
