@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContinentsList: View {
     
-    let continents: [Continent]
+    var continents: [Continent]
     
     var body: some View {
         

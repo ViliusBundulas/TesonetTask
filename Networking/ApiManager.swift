@@ -13,8 +13,10 @@ protocol ContinentsAPIProtocol {
 
 struct ApiManager: ContinentsAPIProtocol {
     
+    var baseURL = "https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_json/data/c218eebbf2f8545f3db9051ac893d69c/country-and-continent-codes-list-csv_json.json"
+    
     func getContinents(_ completion: @escaping (Result<[Continent], APIError>) -> ()) {
-        guard let url = URL(string: "https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_json/data/c218eebbf2f8545f3db9051ac893d69c/country-and-continent-codes-list-csv_json.json") else {
+        guard let url = URL(string: baseURL) else {
             completion(Result.failure(APIError.badURL))
             return
         }
@@ -27,7 +29,7 @@ struct ApiManager: ContinentsAPIProtocol {
                         let continents = try JSONDecoder().decode([Continent].self, from: data)
                         completion(.success(continents))
                     } catch {
-                        completion(.failure(.unknown))
+                        completion(.failure(.unexpectedDataFormat))
                     }
                 } else {
                     completion(.failure(.unknown))

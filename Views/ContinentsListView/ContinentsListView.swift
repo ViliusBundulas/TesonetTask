@@ -15,7 +15,7 @@ struct ContinentsListView: View {
         if viewModel.isLoading {
             LoadingView()
         } else if viewModel.errorMessage != nil {
-            ErrorView()
+            ErrorView(errorMessage: viewModel.errorMessage ?? "")
         } else {
             ContinentsList(continents: viewModel.continents)
         }

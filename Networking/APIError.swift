@@ -9,7 +9,7 @@ import Foundation
 
 enum APIError: Error, CustomStringConvertible {
     case badURL
-    case badResponse(statusCode: Int)
+    case unexpectedDataFormat
     case unknown
     
     var localizedDescription: String {
@@ -17,7 +17,7 @@ enum APIError: Error, CustomStringConvertible {
         switch self {
         case .badURL, .unknown:
             return "Sorry, something went wrong"
-        case .badResponse(_):
+        case .unexpectedDataFormat:
             return "Sorry, connection to the server failed"
         }
     }
@@ -26,8 +26,8 @@ enum APIError: Error, CustomStringConvertible {
     var description: String {
         // for debugging
         switch self {
-        case .badResponse(let statusCode):
-            return "bad response with status code \(statusCode)"
+        case .unexpectedDataFormat:
+            return "Unexpected data format"
         case .badURL:
             return "invalid URL"
         case .unknown:
